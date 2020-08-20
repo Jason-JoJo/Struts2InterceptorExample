@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+     web-jsptaglibrary_2_0.xsd">
+    - 宣告的板號 
+    <tlib-version>1.0</tlib-version>
+    - 供開發工具使用 
+    <short-name>EsapiTags</short-name>
+    - taglib所使用的對應名稱 
+    <uri>/tlds/Esapi.tld</uri>
+    
+<!--     <tag> -->
+<!--     - 可省略,只是說明一下此tag  -->
+<!--     <description>Esapi tag</description> -->
+<!--     - 設定的tag名稱  -->
+<!--     <name>forHtml</name> -->
+<!--     - 對應的java程式  -->
+<!--     <tag-class>com.journaldev.struts2.util.EsapiTag</tag-class> -->
+<!--     - 設定此標籤是否可以有主體  -->
+<!--     <body-context>empty</body-context> -->
+
+
+    <!--- 若要設定此tag可接受屬性,則需要此內容--> 
+<!--     <attribute> -->
+<!--         -若required設為true,則代表此tag必須要有屬性才能使用  -->
+<!--     	<name>forHtml</name> -->
+<!--     	<required>true</required> -->
+<!--         -設定此tag是否只能接受字串  -->
+<!--     	<rtexpevalue>true</rtexpevalue> -->
+<!--     </attribute> -->
+<!-- 	</tag> -->
+<!-- 	<tag> -->
+<!--         <description>Encodes for HTML text attributes.</description> -->
+<!--         <display-name>forHtmlAttribute</display-name> -->
+<!--         <name>forHtmlAttribute</name> -->
+<!--         <tag-class>com.journaldev.struts2.util.EsapiTag</tag-class> -->
+<!--         <body-content>empty</body-content> -->
+<!--         <attribute> -->
+<!--             <description>value to be written out</description> -->
+<!--             <name>value</name> -->
+<!--             <required>true</required> -->
+<!--             <rtexprvalue>true</rtexprvalue> -->
+<!--             <type>java.lang.String</type> -->
+<!--         </attribute> -->
+<!--     </tag> -->
+    <tag>
+        <description>
+			Encodes for (X)HTML text content and text attributes.
+        </description>
+        <display-name>forHtml</display-name>
+        <name>forHtml</name>
+        <tag-class>com.journaldev.struts2.util.EsapiTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <description>value to be written out</description>
+            <name>value</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+<!--     <function> -->
+<!--         <description> -->
+<!-- 			Encodes for (X)HTML text content and text attributes. -->
+<!--         </description> -->
+<!--         <display-name>forHtml</display-name> -->
+<!--         <name>forHtml</name> -->
+<!--         <function-class>com.journaldev.struts2.util.EsapiTag</function-class> -->
+<!--         <function-signature>java.lang.String forHtml(java.lang.String)</function-signature> -->
+<!--         <example>forHtml(unsafeData)</example> -->
+<!--     </function> -->
+</taglib> 

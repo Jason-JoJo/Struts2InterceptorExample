@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+ <constant name = "struts.devMode" value = "false" />
+	<constant name="struts.convention.result.path" value="/"></constant>
+
+	<package name="user" namespace="/" extends="struts-default">
+<!-- 		<interceptors> -->
+<!-- 			<interceptor name="authentication" -->
+<!-- 				class="com.journaldev.struts2.interceptors.AuthenticationInterceptor"></interceptor> -->
+<!-- 			<interceptor-stack name="authStack"> -->
+<!-- 				<interceptor-ref name="authentication"></interceptor-ref> -->
+<!-- 				<interceptor-ref name="defaultStack"></interceptor-ref> -->
+<!-- 			</interceptor-stack> -->
+<!-- 		</interceptors> -->
+
+<!-- 		<default-interceptor-ref name="authStack"></default-interceptor-ref> -->
+		
+		
+		<interceptors>
+		<!-- 註冊攔截器 -->
+		<interceptor name="login" class="com.journaldev.struts2.interceptors.HellowInterceptor"></interceptor>
+		<interceptor-stack name="loginStack">
+			<!-- 將註冊的攔截器新增到自定義攔截器棧 -->
+			<interceptor-ref name="login">
+<!--                             配置不執行此攔截器棧的方法 -->
+<!-- 				<param name="excludeMethods">login</param> -->
+			</interceptor-ref>
+			<!-- 引入struts2預設攔截器棧 -->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+	<!-- 設定package預設攔截器棧 -->
+	<default-interceptor-ref name="loginStack"></default-interceptor-ref>
+
+		<global-results>
+			<result name="login" type="redirect">/home.action</result>
+			<result name="toLogin" type="redirect">/login.jsp</result>
+		</global-results>
+
+		<action name="home">
+			<interceptor-ref name="loginStack"></interceptor-ref>
+			<result>/login.jsp</result>
+		</action>
+
+		<action name="">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/welcome.jsp</result>
+		</action>
+
+
+		<action name="login" class="com.journaldev.struts2.actions.LoginAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/welcome.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+		<action name="welcome" class="com.journaldev.struts2.actions.WelcomeAction">
+			<result name="success">/welcome.jsp</result>
+		</action>
+		
+		<action name="getRequet" class="com.journaldev.struts2.actions.GetRequest">
+			<result name="success">/welcome.jsp</result>
+		</action>
+		
+		<action name="getServlet_action" class="com.journaldev.struts2.actions.Servlet_action">
+			<result name="success">/welcome.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
